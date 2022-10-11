@@ -21,7 +21,7 @@ class CekApiKeyMiddleware
         if ($apikey !="smkyaj") {
             return response()->json([
                 "status" => "Error",
-                "message" => "Api Key Tidak Valid"
+                "message" => "Invalid Api Key"
             ],401);
         }
 
