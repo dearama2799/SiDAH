@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "9515a8d5-269e-4f8d-9158-03eda0596212",
+		"name": "be SiDAH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "maulana1@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "maulana01",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tambah user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Idham",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "Idham02@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Idham02",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tambah tamu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_tamu",
+							"value": "Hendro",
+							"type": "default"
+						},
+						{
+							"key": "instansi",
+							"value": "Setiajaya",
+							"type": "default"
+						},
+						{
+							"key": "no_telpon",
+							"value": "085877889911",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/tamu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tamu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list tamu",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_tamu",
+							"value": "Hendro",
+							"type": "default"
+						},
+						{
+							"key": "instansi",
+							"value": "Setiajaya",
+							"type": "default"
+						},
+						{
+							"key": "no_telpon",
+							"value": "085877889911",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/tamu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tamu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update tamu",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id_tamu",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "nama_tamu",
+							"value": "Hendro",
+							"type": "text"
+						},
+						{
+							"key": "instansi",
+							"value": "Setiajaya Mobilindo",
+							"type": "text"
+						},
+						{
+							"key": "no_telpon",
+							"value": "085877889911",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/tamu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tamu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hapus tamu",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id_tamu",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/tamu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tamu"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
