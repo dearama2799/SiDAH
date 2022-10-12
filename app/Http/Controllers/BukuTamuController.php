@@ -38,14 +38,53 @@ class BukuTamuController extends Controller
         $buku_tamu->tanggal = $tanggal;
         $buku_tamu->id_tamu = $id_tamu;
         $buku_tamu->id_tujuan = $id_tujuan;
+        $buku_tamu->ket_tujuan = $ket_tujuan;
         $buku_tamu->tanda_tangan = $tanda_tangan;
         $buku_tamu->save();
-        dd($buku_tamu);
+        // dd($buku_tamu);
 
         return response()->json([
             "status" => "succes",
             "data" => $buku_tamu
         ]);
         
+    }
+
+    function list(Request $request){
+        $list = BukuTamu::get();
+
+        return response()->json([
+            "status" => "succes",
+            "data" => $list
+        ]);
+    }
+
+    function update(Request $request){
+        // dd($request->all());
+        BukuTamu::where('id', $request->id)
+        ->update([
+            "tanggal"=>$request->tanggal,
+            "id_tamu"=>$request->id_tamu,
+            "id_tujuan"=>$request->id_tujuan,
+            "ket_tujuan"=>$request->ket_tujuan,
+            "tanda_tangan"=>$request->tanda_tangan
+        ]);
+
+        return response()->json([
+            "status" => "Succes Update"
+        ]);
+    }
+
+    
+    function delete(Request $request){
+        $delete = BukuTamu::where('id', $request->id)->delete();
+
+        // BukuTamu::where('id', $request->id)
+        // ->delete();
+
+        return response()->json([
+            "status" => "Succes",
+            "message" => "Data Berhasil di Hapus"
+        ]);
     }
 }

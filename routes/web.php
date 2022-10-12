@@ -2,6 +2,7 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Http\Controllers\BukuTamuController;
 use Illuminate\Http\Request;
 
 /*
@@ -84,4 +85,7 @@ $router->group(['middleware' => 'apikey'], function () use ($router){
     $router->delete('/tamu', 'TamuController@delete');
     $router->post('/tujuan', 'TujuanController@add');
     $router->post('/buku_tamu', 'BukuTamuController@add');
+    $router->get('/buku_tamu', 'BukuTamuController@list');
+    $router->put('/buku_tamu', 'BukuTamuController@update');
+    $router->delete('/buku_tamu', 'BukuTamuController@delete');
 });

@@ -30,6 +30,7 @@ class AuthController extends Controller
 
             if ($checkpassword) {
                 return response()->json([
+                    
                     "status" => "Succes",
                     "data" => $user
                 ]);
