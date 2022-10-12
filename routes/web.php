@@ -16,6 +16,15 @@ use Illuminate\Http\Request;
 |
 */
 
+$router->options(
+    '/{any:.*}',
+    [
+        'middleware' => ['cors'],
+        function () {
+            return response(['status' => 'success']);
+        }
+    ]
+);
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
@@ -76,7 +85,7 @@ $router->get('/user', function () {
 //     'uses' => 'BukuTamuController@login'
 // ]);
 
-$router->group(['middleware' => 'apikey'], function () use ($router){
+$router->group(['middleware' => ['cors', 'apikey']], function () use ($router) {
     $router->post('/login', 'AuthController@login');
     $router->post('/user', 'UserController@add');
     $router->post('/tamu', 'TamuController@add');

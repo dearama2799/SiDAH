@@ -19,11 +19,11 @@ class CekApiKeyMiddleware
         $apikey = $request->header('x-api-key');
         // dd($apikey);
 
-        if ($apikey !="smkyaj") {
+        if ($apikey != "smkyaj") {
             return response()->json([
                 "status" => "Error",
                 "message" => "Invalid Api Key"
-            ],401);
+            ], 401);
         }
 
         return $next($request);
