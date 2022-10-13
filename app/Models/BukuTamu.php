@@ -23,4 +23,14 @@ class BukuTamu extends Model
 
     protected $table="buku_tamu";
 
+
+
+    function tamu() {
+        return $this->belongsTo(Tamu::class, 'id_tamu', 'id_tamu');
+    }
+
+    function tujuan(){
+        return $this->belongsTo(Tujuan::class, 'id_tujuan', 'id_tujuan');
+    }
+
 }

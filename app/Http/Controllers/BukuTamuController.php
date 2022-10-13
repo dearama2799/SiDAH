@@ -51,7 +51,7 @@ class BukuTamuController extends Controller
     }
 
     function list(Request $request){
-        $list = BukuTamu::get();
+        $list = BukuTamu::with('tamu','tujuan')->get();
 
         return response()->json([
             "status" => "succes",
@@ -77,7 +77,10 @@ class BukuTamuController extends Controller
 
     
     function delete(Request $request){
-        $delete = BukuTamu::where('id', $request->id)->delete();
+        // dd($request->all());
+        BukuTamu::where('id', $request->id)->delete();
+        // dd($delete);
+        // ->delete();
 
         // BukuTamu::where('id', $request->id)
         // ->delete();

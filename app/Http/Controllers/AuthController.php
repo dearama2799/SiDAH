@@ -36,15 +36,15 @@ class AuthController extends Controller
                 ]);
             } else {
                 return response()->json([
-                    "status" => "error",
+                    "status" => "Error",
                     "message" => "Password Salah"
-                ]);
+                ], 401);
             }
         } else {
             return response()->json([
-                "status" => "error",
+                "status" => "Error",
                 "message" => "User Tidak Ditemukan"
-            ]);
+            ], 401);
         }
     }
 

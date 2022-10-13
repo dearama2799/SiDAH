@@ -23,4 +23,9 @@ class Tamu extends Model
 
     protected $table="tamu";
 
+
+    // function buku_tamu() {
+    //     return $this->hasMany(BukuTamu::class, 'id_tamu', 'id_tamu');
+    // }
+
 }
