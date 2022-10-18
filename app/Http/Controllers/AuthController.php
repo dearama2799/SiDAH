@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Firebase\JWT\JWT;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -24,15 +25,37 @@ class AuthController extends Controller
         // dd($email,$password);
         $user = User::where('email', $email)->first();
         // dd($check->toArray());
+    
 
         if ($user != null) {
             $checkpassword = app('hash')->check($password, $user->password);
+
+            //--- GENERATE TOKEN ----
+            $key = 'secret';
+
+            $payload = [
+                'iss' => 'smkyaj',
+                'aud' => 'smkyaj',
+                'iat' => time(),
+                'data' => [
+                    'id' => $user->id, // id user login
+                    'email' => $user->email // email user login
+                ]
+            ];
+            
+            $token = JWT::encode($payload, $key, 'HS256');
+            //--- END GENERATE TOKEN ----
+
+
 
             if ($checkpassword) {
                 return response()->json([
                     
                     "status" => "Succes",
-                    "data" => $user
+                    "data" => [
+                        'token' => $token,
+                        'user' => $user
+                    ]
                 ]);
             } else {
                 return response()->json([

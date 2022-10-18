@@ -80,6 +80,7 @@ $app->routeMiddleware([
     'cors' => App\Http\Middleware\CorsMiddleware::class,
     'auth' => App\Http\Middleware\Authenticate::class,
     'apikey' => App\Http\Middleware\CekApiKeyMiddleware::class,
+    'jwt' => App\Http\Middleware\JwtMiddleware::class
 ]);
 
 /*
