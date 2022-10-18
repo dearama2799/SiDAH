@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BukuTamu;
+use App\Models\Tamu;
 use Illuminate\Http\Request;
 
 class BukuTamuController extends Controller
@@ -88,6 +89,15 @@ class BukuTamuController extends Controller
         return response()->json([
             "status" => "Succes",
             "message" => "Data Berhasil di Hapus"
+        ]);
+    }
+
+    function getDetailTamu($id){
+        $tamu = Tamu::where('id_tamu', $id)->first();
+        return response()->json([
+            "status" => "Succes",
+            "message" => "Sukses mendapatkan tamu",
+            "data" => $tamu
         ]);
     }
 }
