@@ -93,7 +93,7 @@ class BukuTamuController extends Controller
     }
 
     function getDetailTamu($id){
-        $tamu = Tamu::where('id_tamu', $id)->first();
+        $tamu = Tamu::select(['id_tamu', 'nama_tamu', 'instansi', 'no_telpon'])->where('id_tamu', $id)->first();
         return response()->json([
             "status" => "Succes",
             "message" => "Sukses mendapatkan tamu",
