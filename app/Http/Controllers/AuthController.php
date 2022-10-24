@@ -44,6 +44,10 @@ class AuthController extends Controller
             ];
             
             $token = JWT::encode($payload, $key, 'HS256');
+
+            $user->update([
+                "token"=>$token
+            ]);
             //--- END GENERATE TOKEN ----
 
 
@@ -71,5 +75,17 @@ class AuthController extends Controller
         }
     }
 
-    //
+    function logout(Request $request)
+    {
+        // dd($request->user->toArray());
+
+        $request->user->update([
+            "token"=>null
+        ]);
+
+        return response()->json([
+            "status" => "Succes",
+            "message" => "Logout Berhasil"
+        ]);
+    }
 }

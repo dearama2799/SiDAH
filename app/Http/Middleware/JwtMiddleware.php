@@ -28,7 +28,20 @@ class JwtMiddleware
             $getPayload = JWT::decode($token, new Key($key, 'HS256'));
             // dd($getPayload);
 
-            $user = User::find($getPayload->data->id);
+            // $user = User::find($getPayload->data->id);
+            $user = User::where([
+                'id'=>$getPayload->data->id,
+                'token'=>$token
+            ])->first();
+
+            // dd($user->toArray());
+
+            if ($user == null) {
+                return response()->json([
+                    "status" => "Error",
+                    "message" => "Token tidak valid"
+                ], 401);
+            }
             // dd($user->toArray());
 
             $request->merge([

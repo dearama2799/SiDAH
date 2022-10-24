@@ -99,6 +99,7 @@ $router->group(['middleware' => ['cors', 'apikey']], function () use ($router) {
     $router->get('/buku_tamu', 'BukuTamuController@list');
     $router->put('/buku_tamu', 'BukuTamuController@update');
     $router->delete('/buku_tamu', 'BukuTamuController@delete');
+    $router->get('/logout', 'AuthController@logout');
 });
 $router->get('/detailtamu/{id}', 'BukuTamuController@getDetailTamu');
 });

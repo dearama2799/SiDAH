@@ -50,6 +50,7 @@ class TamuController extends Controller
     
     function update(Request $request){
         // dd($request->all());
+        $tamu = Tamu::get();
         Tamu::where('id_tamu' , $request->id_tamu)
         ->update([
             "nama_tamu"=>$request->nama_tamu,
@@ -58,18 +59,22 @@ class TamuController extends Controller
         ]);
 
         return response()->json([
-            "status" => "Data Berhasil Di Update"
+            "status" => "Data Berhasil Di Update",
+            "data" => $tamu
         ]);
         
     }
 
     function delete(Request $request){
+        // $tamu = Tamu::get();
         Tamu::where('id_tamu', $request->id_tamu)
         ->delete();
+        
 
         return response()->json([
             "status" => "Succes",
             "message" => "Data Berhasil Di Hapus"
+            
         ]);
     }
 }
