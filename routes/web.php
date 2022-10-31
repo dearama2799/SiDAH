@@ -88,7 +88,7 @@ $router->get('/user', function () {
 $router->group(['middleware' => ['cors', 'apikey']], function () use ($router) {
     $router->post('/login', 'AuthController@login');
     
-    $router->group(['middleware' => ['jwt']], function () use ($router) {
+    $router->group(['middleware' => ['jwt', 'permission']], function () use ($router) {
     $router->post('/user', 'UserController@add');
     $router->post('/tamu', 'TamuController@add');
     $router->get('/tamu', 'TamuController@list');

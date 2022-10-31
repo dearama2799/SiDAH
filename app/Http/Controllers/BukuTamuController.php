@@ -62,6 +62,7 @@ class BukuTamuController extends Controller
 
     function update(Request $request){
         // dd($request->all());
+        $list = BukuTamu::get();
         BukuTamu::where('id', $request->id)
         ->update([
             "tanggal"=>$request->tanggal,
@@ -72,7 +73,8 @@ class BukuTamuController extends Controller
         ]);
 
         return response()->json([
-            "status" => "Succes Update"
+            "status" => "Succes Update",
+            "message" => $list
         ]);
     }
 
